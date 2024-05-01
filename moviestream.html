@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Watchzoon</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="movie_stream_con">
+      <div class="close" onclick="close()">&times;</div>
+      <div class="wrapped">
+        <span id="frame"></span>
+        <div class="films_content"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const id = localStorage.getItem("id"); // Retrieves the value of 'id' from the query parameter
+    let appned_iframe = document.getElementById("frame");
+    let new_frame = document.createElement("iframe");
+    new_frame.src = `https://vidsrc.xyz/embed/movie?tmdb=${id}`;
+    new_frame.allowFullscreen = true;
+    new_frame.style.borderRadius = "8px";
+    new_frame.style.width = "100%";
+    new_frame.style.height = "400px";
+
+    appned_iframe.appendChild(new_frame);
+
+    document
+      .getElementsByClassName("close")[0]
+      .addEventListener("click", (e) => {
+        localStorage.removeItem("id");
+        window.location.replace("/");
+      });
+
+    async function fetchmovieinfo() {
+      const url = `https://api.themoviedb.org/3/movie/${id}`;
+      const params = new URLSearchParams({ language: "en-US" });
+
+      const response = await fetch(url + "?" + params.toString(), {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMjQyMGFlYTE1YjYyZDFhZjllYTc0OWQ5NWZhYmFkMyIsInN1YiI6IjY1NzE3ZTU0OTBmY2EzMDE0ZTcxYjFlYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DY3qGumteCUGUB_jcJNzt0obDH0jaPHkN5AtcIjHLfw",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch movie data");
+      }
+
+      const response_info = await response.json();
+      
+      let appned_ele = document.getElementsByClassName('films_content')[0];
+
+      let spanEle = document.createElement('span');
+      spanEle.innerText = response_info.title;
+
+      let pEle = document.createElement('p');
+      pEle.innerText = response_info.overview;
+
+      let divEle = document.createElement('p');
+      divEle.innerText = "Status: " + response_info.status;
+
+      appned_ele.appendChild(spanEle)
+      appned_ele.appendChild(divEle)
+      appned_ele.appendChild(pEle)
+    }
+
+
+     fetchmovieinfo()
+  </script>
+</html>

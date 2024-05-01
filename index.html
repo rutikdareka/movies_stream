@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Watchzone</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="splash-screen" id="splashScreen">
+      <span class="logo">Watchzone</span>
+    </div>
+    <main class="main-content" id="mainContent" style="display: none">
+      <header>
+        <div class="heading_part">
+          <div class="wrapped_head">
+            <span class="zoon">
+              <span style="color: red;"><a href="/">Watchzone</a></span>
+              <select name="Popular" id="filters">
+                <option value="Popular">Popular</option>
+                <option value="Upcomming">Upcomming</option>
+                <option value="Top Rated">Top Rated</option>
+              </select>
+            </span>
+            <span class="adjust">
+              <svg
+                id="search"
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="30"
+                height="30"
+                viewBox="0 0 50 50"
+              >
+                <path
+                  d="M 21 3 C 11.622998 3 4 10.623005 4 20 C 4 29.376995 11.622998 37 21 37 C 24.712383 37 28.139151 35.791079 30.9375 33.765625 L 44.085938 46.914062 L 46.914062 44.085938 L 33.886719 31.058594 C 36.443536 28.083 38 24.223631 38 20 C 38 10.623005 30.377002 3 21 3 z M 21 5 C 29.296122 5 36 11.703883 36 20 C 36 28.296117 29.296122 35 21 35 C 12.703878 35 6 28.296117 6 20 C 6 11.703883 12.703878 5 21 5 z"
+                ></path>
+              </svg>
+              <input type="text" id="search_movies" placeholder="Search Any Types Movies" />
+            </span>
+          </div>
+        </div>
+      </header>
+      <div class="middle_content">
+        <div id="wrapped_main"></div>
+        <footer>
+        
+            <p>© 2024. All Rights Reserved...</p>
+            <p>© Copyright Watchzone Inc.</p>
+            <p class="a_pp">Let's connected with us <a href="http://x.com/Watchzone_7" target="_blank" class="x_svg"><svg viewBox="0 0 1200 1227" fill="white" width="24" height="24" class="jsx-39f5e8b3092851d9"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" class="jsx-39f5e8b3092851d9"></path></svg></a></p>
+        </footer>
+      </div>
+    </main>
+  </body>
+  <script src="sricpt.js"></script>
+</html>
